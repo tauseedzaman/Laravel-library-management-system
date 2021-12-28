@@ -18,5 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::post('login',[LoginController::class,'login'])->name('login');
+Route::post('/',[LoginController::class,'login'])->name('login');

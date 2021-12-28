@@ -15,6 +15,8 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('return__days');
+            $table->string('fine');
             $table->timestamps();
         });
     }

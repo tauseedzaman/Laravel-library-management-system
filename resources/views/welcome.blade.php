@@ -9,6 +9,7 @@
                   <img src="{{ asset('images/library.png') }}" alt="">
                 </div>
                 <form class="yourform" action="{{ route("login") }}" method="post">
+                @csrf
                   <h3 class="heading">Admin Login</h3>
                     <div class="form-group">
                         <label>Username</label>
