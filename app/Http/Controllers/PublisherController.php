@@ -15,7 +15,9 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        //
+        return view('publisher.index', [
+            'publishers' => publisher::latest()->get()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        //
+        return view('publisher.create');
     }
 
     /**
@@ -36,18 +38,8 @@ class PublisherController extends Controller
      */
     public function store(StorepublisherRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\publisher  $publisher
-     * @return \Illuminate\Http\Response
-     */
-    public function show(publisher $publisher)
-    {
-        //
+        publisher::create($request->validated());
+        return redirect()->route('publishers');
     }
 
     /**
@@ -58,7 +50,9 @@ class PublisherController extends Controller
      */
     public function edit(publisher $publisher)
     {
-        //
+        return view('publisher.edit', [
+            'publisher' => $publisher
+        ]);
     }
 
     /**
@@ -68,19 +62,23 @@ class PublisherController extends Controller
      * @param  \App\Models\publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatepublisherRequest $request, publisher $publisher)
+    public function update(UpdatepublisherRequest $request, $id)
     {
-        //
+        $publisher = publisher::find($id);
+        $publisher->name = $request->name;
+        $publisher->save();
+
+        return redirect()->route('publishers');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(publisher $publisher)
+    public function destroy($id)
     {
-        //
+        publisher::find($id)->delete();
+        return redirect()->route('publishers');
     }
 }
