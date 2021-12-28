@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}}}"> <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} }}"> <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"> <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }} "> <!-- Custom stlylesheet -->
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="offset-md-4 col-md-4">
                     <div class="logo">
-                        <a href="#"><img src="images/library.png"></a>
+                        <a href="#"><img src="{{ asset('images/library.png') }}"></a>
                     </div>
                 </div>
                 <div class="offset-md-2 col-md-2">
@@ -29,8 +29,11 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{ route('change_password') }}">Change Password</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('logoutForm').submit()">Log Out</a>
                         </div>
+                        <form method="post" id="logoutForm" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
@@ -57,7 +60,7 @@
         </div>
     </div> <!-- /Menu Bar -->
 
-    @yield('contenet')
+    @yield('content')
 
     <!-- FOOTER -->
     <div id="footer">

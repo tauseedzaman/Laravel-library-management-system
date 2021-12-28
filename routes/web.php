@@ -33,7 +33,14 @@ Route::post('/Change-password',[LoginController::class,'changePassword'])->name(
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[dashboardController::class,'index'])->name('dashboard');
-    Route::get('/authors',[AutherController::class,'index'])->name('authers');
+
+    Route::get('/authors',[AutherController::class,'index'])->name('authors');
+    Route::get('/authors/create',[AutherController::class,'create'])->name('authors.create');
+    Route::get('/authors/edit/{auther}',[AutherController::class,'edit'])->name('authors.edit');
+    Route::post('/authors/update/{id}',[AutherController::class,'update'])->name('authors.update');
+    Route::post('/authors/delete/{id}',[AutherController::class,'destroy'])->name('authors.destroy');
+    Route::post('/authors/create',[AutherController::class,'store'])->name('authors.store');
+
     Route::get('/publishers',[PublisherController::class,'index'])->name('publishers');
     Route::get('/categories',[CategoryController::class,'index'])->name('categories');
     Route::get('/books',[BookController::class,'index'])->name('books');

@@ -15,7 +15,9 @@ class AutherController extends Controller
      */
     public function index()
     {
-        //
+        return view('auther.index',[
+            'authors' => auther::latest()->get()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class AutherController extends Controller
      */
     public function create()
     {
-        //
+        return view('auther.add');
     }
 
     /**
@@ -36,7 +38,9 @@ class AutherController extends Controller
      */
     public function store(StoreautherRequest $request)
     {
-        //
+        auther::create($request->validated());
+
+        return redirect()->route('authors');
     }
 
     /**
@@ -58,7 +62,9 @@ class AutherController extends Controller
      */
     public function edit(auther $auther)
     {
-        //
+        return view('auther.edit',[
+            'auther' => $auther
+        ]);
     }
 
     /**
@@ -68,19 +74,55 @@ class AutherController extends Controller
      * @param  \App\Models\auther  $auther
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateautherRequest $request, auther $auther)
+    public function update(UpdateautherRequest $request, $id)
     {
-        //
+        $auther = auther::find($id);
+        $auther->name=$request->name;
+        $auther->save();
+
+        return redirect()->route('authors');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\auther  $auther
      * @return \Illuminate\Http\Response
      */
-    public function destroy(auther $auther)
+    public function destroy($id)
     {
-        //
+        auther::find($id)->delete();
+        return redirect()->route('authors');
     }
 }
+
+/*
+{{-- <?php // pagination
+    $sql1 = 'SELECT * FROM author';
+    $result = mysqli_query($conn, $sql1);
+    if (mysqli_num_rows($result) > 0) {
+        $total_records = mysqli_num_rows($result);
+
+        $total_page = ceil($total_records / $limit);
+        // show pagination
+        if ($total_page > 1) {
+            $pagination = "<ul class='pagination admin-pagination'>";
+            if ($page > 1) {
+                // show previous button
+                $pagination .= '<li class=""><a href="author.php?page=' . ($page - 1) . '">Prev</a></li>';
+            }
+            for ($i = 1; $i <= $total_page; $i++) {
+                if ($i == $page) {
+                    $active = 'active';
+                } else {
+                    $active = '';
+                }
+                $pagination .= '<li class="' . $active . '"><a href="author.php?page=' . $i . '">' . $i . '</a></li>';
+            }
+            if ($total_page > $page) {
+                //show next button
+                $pagination .= '<li class=""><a href="author.php?page=' . ($page + 1) . '">Next</a></li>';
+            }
+            $pagination .= '</ul>';
+            echo $pagination;
+        }
+    } ?> --}}*/
