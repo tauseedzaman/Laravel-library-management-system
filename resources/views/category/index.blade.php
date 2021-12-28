@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h2 class="admin-heading">All Publisher</h2>
+                    <h2 class="admin-heading">All Categories</h2>
                 </div>
                 <div class="offset-md-7 col-md-2">
-                    <a class="add-new" href="{{ route('publisher.create') }}">Add Publisher</a>
+                    <a class="add-new" href="{{ route('category.create') }}">Add Category</a>
                 </div>
             </div>
             <div class="row">
@@ -16,20 +16,20 @@
                     <table class="content-table">
                         <thead>
                             <th>S.No</th>
-                            <th>Publisher Name</th>
+                            <th>Category Name</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </thead>
                         <tbody>
-                            @forelse ($publishers as $publisher)
+                            @forelse ($categories as $category)
                                 <tr>
                                     <td>{{ $loop->index }}</td>
-                                    <td>{{ $publisher->name }}</td>
+                                    <td>{{ $category->name }}</td>
                                     <td class="edit">
-                                        <a href="{{ route('publisher.edit', $publisher) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('category.edit', $category) }}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td class="delete">
-                                        <form action="{{ route('publisher.destroy', $publisher) }}" method="post"
+                                        <form action="{{ route('category.destroy', $category) }}" method="post"
                                             class="form-hidden">
                                             <button class="btn btn-danger delete-author">Delete</button>
                                             @csrf
@@ -38,7 +38,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">No Publisher Found</td>
+                                    <td colspan="4">No Category Found</td>
                                 </tr>
                             @endforelse
                         </tbody>

@@ -50,13 +50,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/publisher/delete/{id}', [PublisherController::class, 'destroy'])->name('publisher.destroy');
     Route::post('/publisher/create', [PublisherController::class, 'store'])->name('publisher.store');
 
-
-
-
-
-
-
+    // Category CRUD
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::post('/category/create', [CategoryController::class, 'store'])->name('category.store');
+
+
+
+
+
     Route::get('/books', [BookController::class, 'index'])->name('books');
     Route::get('/register-students', [StudentController::class, 'index'])->name('reg_students');
     Route::get('/book_issue', [BookIssueController::class, 'index'])->name('book_issue');

@@ -4,18 +4,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h2 class="admin-heading">Update Publisher</h2>
+                <h2 class="admin-heading">Update Category</h2>
             </div>
         </div>
         <div class="row">
             <div class="offset-md-3 col-md-6">
-                <form class="yourform" action="{{ route('publisher.update', $publisher->id) }}" method="post"
+                <form class="yourform" action="{{ route('category.update', $category->id) }}" method="post"
                     autocomplete="off">
                     @csrf
                     <div class="form-group">
-                        <label>Publisher Name</label>
+                        <label>Category Name</label>
                         <input type="text" class="form-control @error('name') isinvalid @enderror" name="name"
-                            value="{{ $publisher->name }}" required>
+                            value="{{ $category->name }}" required>
                         @error('name')
                             <div class="alert alert-danger" role="alert">
                                 {{ $message }}
