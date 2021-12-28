@@ -14,7 +14,9 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'tauseedzaman',
+            'username' => 'tauseedzaman',
+            'password' => 'tauseedzaman',
         ];
     }
 }
