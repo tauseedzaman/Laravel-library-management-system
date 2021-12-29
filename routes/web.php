@@ -61,9 +61,24 @@ Route::middleware('auth')->group(function () {
 
 
 
-
+    // books CRUD
     Route::get('/books', [BookController::class, 'index'])->name('books');
-    Route::get('/register-students', [StudentController::class, 'index'])->name('reg_students');
+    Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
+    Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('book.edit');
+    Route::post('/book/update/{id}', [BookController::class, 'update'])->name('book.update');
+    Route::post('/book/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
+    Route::post('/book/create', [BookController::class, 'store'])->name('book.store');
+
+    // students CRUD
+    Route::get('/students', [StudentController::class, 'index'])->name('students');
+    Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
+    Route::get('/student/edit/{student}', [StudentController::class, 'edit'])->name('student.edit');
+    Route::post('/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+    Route::post('/student/delete/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
+    Route::post('/student/create', [StudentController::class, 'store'])->name('student.store');
+
+
+
     Route::get('/book_issue', [BookIssueController::class, 'index'])->name('book_issue');
     Route::get('/reports', [dashboardController::class, 'report'])->name('reports');
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
