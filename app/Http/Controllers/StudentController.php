@@ -15,7 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return view('student.index', [
+            'students' => student::latest()->get()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -36,7 +38,9 @@ class StudentController extends Controller
      */
     public function store(StorestudentRequest $request)
     {
-        //
+        student::create($request->validated());
+
+        return redirect()->route('students');
     }
 
     /**
@@ -45,9 +49,18 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show($id)
     {
-        //
+        $student = student::find($id)->first();
+        // $data = "";
+        // dd();
+        // if ($student->name != '') {
+        //     $data = `<tr>
+        //     `;
+        // } else {
+        //     $data = "<h2>No record found.</h2>";
+        // }
+        return $student;
     }
 
     /**
@@ -58,19 +71,30 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        //
+        return view('student.edit', [
+            'student' => $student
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatestudentRequest  $request
-     * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatestudentRequest $request, student $student)
+    public function update(UpdatestudentRequest $request, $id)
     {
-        //
+        $student = student::find($id);
+        $student->name = $request->name;
+        $student->address = $request->address;
+        $student->gender = $request->gender;
+        $student->class = $request->class;
+        $student->age = $request->age;
+        $student->phone = $request->phone;
+        $student->email = $request->email;
+        $student->save();
+
+        return redirect()->route('students');
     }
 
     /**
@@ -79,8 +103,9 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy($id)
     {
-        //
+        student::find($id)->delete();
+        return redirect()->route('students');
     }
 }
