@@ -19,6 +19,7 @@ class BookController extends Controller
     public function index()
     {
 
+        // dd(book::latest()->get());
         return view('book.index', [
             'books' => book::latest()->get()
         ]);
@@ -61,7 +62,10 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-        return view('book.edit', [
+        return view('book.edit',[
+            'authors' => auther::latest()->get(),
+            'publishers' => publisher::latest()->get(),
+            'categories' => category::latest()->get(),
             'book' => $book
         ]);
     }
@@ -77,9 +81,9 @@ class BookController extends Controller
     {
         $book = book::find($id);
         $book->name = $request->name;
-        $book->auther = $request->auther;
-        $book->category = $request->category;
-        $book->publisher = $request->publisher;
+        $book->auther_id = $request->author_id;
+        $book->category_id = $request->category_id;
+        $book->publisher_id = $request->publisher_id;
         $book->save();
         return redirect()->route('books');
     }

@@ -18,7 +18,7 @@
                             <label>Book Name</label>
                             <input type="text" class="form-control @error('name') isinvalid @enderror"
                                 placeholder="Book Name" name="name" value="{{ old('name') }}" required>
-                            @error('category')
+                            @error('name')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label>Category</label>
                             <select class="form-control @error('category_id') isinvalid @enderror " name="category_id" required>
-                                <option>Select Category</option>
+                                <option value="">Select Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach

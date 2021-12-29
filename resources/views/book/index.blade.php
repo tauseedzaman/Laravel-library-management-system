@@ -31,7 +31,7 @@
                                     <td class="id">{{ $loop->index }}</td>
                                     <td>{{ $book->name }}</td>
                                     <td>{{ $book->category->name }}</td>
-                                    <td>{{ $book->author->name }}</td>
+                                    <td>{{ $book->auther->name }}</td>
                                     <td>{{ $book->publisher->name }}</td>
                                     <td>
                                         @if ($book->status == 'Y')
@@ -44,7 +44,7 @@
                                         <a href="{{ route('book.edit', $book) }}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td class="delete">
-                                        <form action="{{ route('category.destroy', $book) }}" method="post"
+                                        <form action="{{ route('book.destroy', $book) }}" method="post"
                                             class="form-hidden">
                                             <button class="btn btn-danger delete-book">Delete</button>
                                             @csrf
