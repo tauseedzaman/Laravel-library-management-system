@@ -13,7 +13,7 @@ class UpdatesettingsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdatesettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'return_days' => 'required',
+            'fine' => 'required',
         ];
     }
 }

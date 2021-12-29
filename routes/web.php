@@ -90,4 +90,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/reports', [dashboardController::class, 'report'])->name('reports');
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/settings', [SettingsController::class, 'update'])->name('settings');
 });

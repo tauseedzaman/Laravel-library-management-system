@@ -15,51 +15,10 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        //
+        return view('settings',['data' => settings::latest()->first()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoresettingsRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoresettingsRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function show(settings $settings)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(settings $settings)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,19 +27,12 @@ class SettingsController extends Controller
      * @param  \App\Models\settings  $settings
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatesettingsRequest $request, settings $settings)
+    public function update(UpdatesettingsRequest $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\settings  $settings
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(settings $settings)
-    {
-        //
+        $setting = settings::latest()->first();
+        $setting->return_days = $request->return_days;
+        $setting->fine = $request->fine;
+        $setting->save();
+        return redirect()->route('settings');
     }
 }
