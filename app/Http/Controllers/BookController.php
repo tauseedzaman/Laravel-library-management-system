@@ -19,7 +19,6 @@ class BookController extends Controller
     public function index()
     {
 
-        // dd(book::latest()->get());
         return view('book.index', [
             'books' => book::latest()->get()
         ]);
@@ -100,29 +99,3 @@ class BookController extends Controller
         return redirect()->route('books');
     }
 }
-/*   <?php //pagination
-                    $sql1 = 'SELECT * FROM book';
-                    $result1 = mysqli_query($conn, $sql1);
-                    if (mysqli_num_rows($result1) > 0) {
-                        $total_records = mysqli_num_rows($result1);
-                        $total_page = ceil($total_records / $limit);
-                        if ($total_page > 1) {
-                            $pagination = "<ul class='pagination admin-pagination'>";
-                            if ($page > 1) {
-                                $pagination .= '<li class=""><a href="book.php?page=' . ($page - 1) . '">Prev</a></li>';
-                            }
-                            for ($i = 1; $i <= $total_page; $i++) {
-                                if ($i == $page) {
-                                    $active = 'active';
-                                } else {
-                                    $active = '';
-                                }
-                                $pagination .= '<li class="' . $active . '"><a href="book.php?page=' . $i . '">' . $i . '</a></li>';
-                            }
-                            if ($total_page > $page) {
-                                $pagination .= '<li class=""><a href="book.php?page=' . ($page + 1) . '">Next</a></li>';
-                            }
-                            $pagination .= '</ul>';
-                            echo $pagination;
-                        }
-                    } ?>*/

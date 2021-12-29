@@ -15,11 +15,11 @@ class CreateBookIssuesTable extends Migration
     {
         Schema::create('book_issues', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('student_id')->constrained();
             $table->foreignId('book_id')->constrained();
             $table->timestamp('issue_date');
             $table->timestamp('return_date')->nullable();
-            $table->string('issie_ststus')->nullable();
+            $table->string('issue_status')->nullable();
             $table->timestamp('return_day')->nullable();
             $table->string('fine')->nullable();
             $table->timestamps();
