@@ -14,7 +14,8 @@ class SettingsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'return_days' => 20,
+            'fine' => 5
         ];
     }
 }

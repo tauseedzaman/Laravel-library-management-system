@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\publisher;
 use Illuminate\Database\Seeder;
 
 class PublisherSeeder extends Seeder
@@ -13,6 +14,8 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        //
+        if (publisher::count() == 0) {
+            publisher::factory(10)->create();
+        }
     }
 }

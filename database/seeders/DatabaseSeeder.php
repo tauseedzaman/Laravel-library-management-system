@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AutherSeeder::class,
             BookIssueSeeder::class,
-            BookSeeder::class,
             CategorySeeder::class,
             PublisherSeeder::class,
+            BookSeeder::class,
             SettingsSeeder::class,
             StudentSeeder::class,
         ]);
