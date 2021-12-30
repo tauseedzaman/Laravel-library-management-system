@@ -32,7 +32,6 @@ class BookIssueController extends Controller
      */
     public function create()
     {
-        dd(book::where('status', 'Y')->count());
         return view('book.issueBook_add', [
             'students' => student::latest()->get(),
             'books' => book::where('status', 'Y')->get(),
