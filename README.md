@@ -1,4 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+#Laravel Library Management System
 
 ## Quick Start 
 1. clone the repo
@@ -11,6 +12,10 @@
 8. php aritsan db:seed
 9. php artisan serve
 
+## ScreenShots
+<img src="Screenshots/lms (1)" width="100%" /><br />
+<img src="Screenshots/lms (2)" width="100%" /><br />
+<img src="Screenshots/lms (3)" width="100%" /><br />
 ## Code of Conduct
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
