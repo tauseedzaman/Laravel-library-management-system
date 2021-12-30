@@ -16,7 +16,7 @@ class PublisherController extends Controller
     public function index()
     {
         return view('publisher.index', [
-            'publishers' => publisher::latest()->get()
+            'publishers' => publisher::Paginate(5)
         ]);
     }
 

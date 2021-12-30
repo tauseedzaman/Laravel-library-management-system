@@ -23,7 +23,7 @@
                         <tbody>
                             @forelse ($publishers as $publisher)
                                 <tr>
-                                    <td>{{ $loop->index }}</td>
+                                    <td>{{ $publisher->id }}</td>
                                     <td>{{ $publisher->name }}</td>
                                     <td class="edit">
                                         <a href="{{ route('publisher.edit', $publisher) }}" class="btn btn-success">Edit</a>
@@ -43,7 +43,7 @@
                             @endforelse
                         </tbody>
                     </table>
-
+                    {{ $publishers->links() }}
                 </div>
             </div>
         </div>
