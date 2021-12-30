@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         return view('student.index', [
-            'students' => student::latest()->get()
+            'students' => student::Paginate(5)
         ]);
     }
 
@@ -52,14 +52,6 @@ class StudentController extends Controller
     public function show($id)
     {
         $student = student::find($id)->first();
-        // $data = "";
-        // dd();
-        // if ($student->name != '') {
-        //     $data = `<tr>
-        //     `;
-        // } else {
-        //     $data = "<h2>No record found.</h2>";
-        // }
         return $student;
     }
 

@@ -27,7 +27,7 @@
                         <tbody>
                             @forelse ($students as $student)
                                 <tr>
-                                    <td class="id">{{ $loop->index }}</td>
+                                    <td class="id">{{ $student->id }}</td>
                                     <td>{{ $student->name }}</td>
                                     <td class="text-capitalize">{{ $student->gender }}</td>
                                     <td>{{ $student->phone }}</td>
@@ -54,6 +54,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{ $students->links() }}
                     <div id="modal">
                         <div id="modal-form">
                             <table cellpadding="10px" width="100%">
