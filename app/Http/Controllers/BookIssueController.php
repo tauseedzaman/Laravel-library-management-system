@@ -20,9 +20,8 @@ class BookIssueController extends Controller
      */
     public function index()
     {
-        // dd(book_issue::latest()->get());
         return view('book.issueBooks', [
-            'books' => book_issue::latest()->get()
+            'books' => book_issue::Paginate(5)
         ]);
     }
 

@@ -60,6 +60,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{ $books->links() }}
                 </div>
             </div>
         </div>
