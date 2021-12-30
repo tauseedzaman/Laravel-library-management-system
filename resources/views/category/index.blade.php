@@ -23,7 +23,7 @@
                         <tbody>
                             @forelse ($categories as $category)
                                 <tr>
-                                    <td>{{ $loop->index }}</td>
+                                    <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td class="edit">
                                         <a href="{{ route('category.edit', $category) }}" class="btn btn-success">Edit</a>
@@ -43,7 +43,7 @@
                             @endforelse
                         </tbody>
                     </table>
-
+                    {{ $categories->links() }}
                 </div>
             </div>
         </div>
