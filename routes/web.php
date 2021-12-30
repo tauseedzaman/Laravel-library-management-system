@@ -94,7 +94,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/reports/monthly-Wise', [ReportsController::class, 'month_wise'])->name('reports.month_wise');
     Route::post('/reports/monthly-Wise', [ReportsController::class, 'generate_month_wise_report'])->name('reports.month_wise_generate');
     Route::get('/reports/not-returned', [ReportsController::class, 'not_returned'])->name('reports.not_returned');
-    Route::post('/reports/not-returned', [ReportsController::class, 'generate_not_returned_report'])->name('reports.not_returned_generate');
 
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings', [SettingsController::class, 'update'])->name('settings');
