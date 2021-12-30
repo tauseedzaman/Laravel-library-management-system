@@ -18,7 +18,7 @@ class book_issue extends Model
      */
     public function student(): BelongsTo
     {
-        return $this->belongsTo(student::class, 'id', 'student_id');
+        return $this->belongsTo(student::class, 'student_id', 'id');
     }
 
     /**
@@ -28,13 +28,14 @@ class book_issue extends Model
      */
     public function book(): BelongsTo
     {
-        return $this->belongsTo(book::class, 'id', 'book_id');
+        return $this->belongsTo(book::class, 'book_id', 'id');
     }
 
 
     protected $casts = [
         'issue_date' => 'datetime:Y-m-d',
         'return_date' => 'datetime:Y-m-d',
+        'return_day' => 'datetime:Y-m-d',
     ];
 
 }

@@ -23,7 +23,7 @@
                                     <option value='{{ $student->id }}'>{{ $student->name }}</option>
                                 @endforeach
                             </select>
-                            @error('student_name')
+                            @error('student_id')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -37,7 +37,7 @@
                                     <option value='{{ $book->id }}'>{{ $book->name }}</option>
                                 @endforeach
                             </select>
-                            @error('book_name')
+                            @error('book_id')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>

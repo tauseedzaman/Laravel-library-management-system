@@ -82,7 +82,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/book_issue', [BookIssueController::class, 'index'])->name('book_issued');
     Route::get('/book-issue/create', [BookIssueController::class, 'create'])->name('book_issue.create');
-    Route::get('/book-issue/edit/{book_issue}', [BookIssueController::class, 'edit'])->name('book_issue.edit');
+    Route::get('/book-issue/edit/{id}', [BookIssueController::class, 'edit'])->name('book_issue.edit');
     Route::post('/book-issue/update/{id}', [BookIssueController::class, 'update'])->name('book_issue.update');
     Route::post('/book-issue/delete/{id}', [BookIssueController::class, 'destroy'])->name('book_issue.destroy');
     Route::post('/book-issue/create', [BookIssueController::class, 'store'])->name('book_issue.store');

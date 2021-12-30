@@ -26,18 +26,15 @@
                             <th>Delete</th>
                         </thead>
                         <tbody>
-                            {{-- if((date('Y-m-d') > $row['return_date']) && $row['issue_status'] == "N"){ --}}
-                            {{-- $over = 'style="background:rgba(255,0,0,0.2)"'; --}}
-                            {{-- }else{ $over = ''; } ?> --}}
                             @forelse ($books as $book)
-                                <tr>
-                                    <td>{{ $loop->index }}</td>
+                                <tr style='@if (date('Y-m-d') > $book->return_date->format('d-m-Y') && $book->issue_status == 'N') ) background:rgba(255,0,0,0.2) @endif'>
+                                    <td>{{ $book->id }}</td>
                                     <td>{{ $book->student->name }}</td>
                                     <td>{{ $book->book->name }}</td>
                                     <td>{{ $book->student->phone }}</td>
                                     <td>{{ $book->student->email }}</td>
-                                    <td>{{ $book->issue_date }}</td>
-                                    <td>{{ $book->return_date }}</td>
+                                    <td>{{ $book->issue_date->format('d M, Y') }}</td>
+                                    <td>{{ $book->return_date->format('d M, Y') }}</td>
                                     <td>
                                         @if ($book->issue_status == 'Y')
                                             <span class='badge badge-success'>Returned</span>
@@ -46,7 +43,7 @@
                                         @endif
                                     </td>
                                     <td class="edit">
-                                        <a href="{{ route('book_issue.edit', $book) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('book_issue.edit', $book->id) }}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td class="delete">
                                         <form action="{{ route('book_issue.destroy', $book) }}" method="post"

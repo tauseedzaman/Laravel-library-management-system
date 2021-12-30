@@ -21,7 +21,6 @@ class CreateBookIssuesTable extends Migration
             $table->timestamp('return_date')->nullable();
             $table->string('issue_status')->nullable();
             $table->timestamp('return_day')->nullable();
-            $table->string('fine')->nullable();
             $table->timestamps();
         });
     }
