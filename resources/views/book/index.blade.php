@@ -28,7 +28,7 @@
                         <tbody>
                             @forelse ($books as $book)
                                 <tr>
-                                    <td class="id">{{ $loop->index }}</td>
+                                    <td class="id">{{ $book->id }}</td>
                                     <td>{{ $book->name }}</td>
                                     <td>{{ $book->category->name }}</td>
                                     <td>{{ $book->auther->name }}</td>
@@ -58,7 +58,7 @@
                             @endforelse
                         </tbody>
                     </table>
-
+                    {{ $books->links() }}
                 </div>
             </div>
         </div>
