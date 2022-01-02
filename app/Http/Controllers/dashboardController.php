@@ -33,7 +33,6 @@ class dashboardController extends Controller
 
     public function change_password(changePasswordRequest $request)
     {
-        // dd();
         if (Auth::check(["username" => auth()->user()->username, "password" => $request->c_password])) {
             auth()->user()->password = bcrypt($request->password);
             return redirect()->back()->with(['message' => "Password Changed Successfully!."]);

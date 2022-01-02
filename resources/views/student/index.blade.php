@@ -54,7 +54,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $students->links() }}
+                    {{ $students->links('vendor/pagination/bootstrap-4') }}
                     <div id="modal">
                         <div id="modal-form">
                             <table cellpadding="10px" width="100%">

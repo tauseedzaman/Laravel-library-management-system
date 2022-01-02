@@ -43,7 +43,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $publishers->links() }}
+                    {{ $publishers->links('vendor/pagination/bootstrap-4') }}
                 </div>
             </div>
         </div>

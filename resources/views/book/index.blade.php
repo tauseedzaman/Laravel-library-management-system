@@ -58,7 +58,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $books->links() }}
+                    {{ $books->links('vendor/pagination/bootstrap-4') }}
                 </div>
             </div>
         </div>
