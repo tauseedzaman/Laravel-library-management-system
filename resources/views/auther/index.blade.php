@@ -29,7 +29,7 @@
                                         <a href="{{ route('authors.edit', $auther) }}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td class="delete">
-                                        <form action="{{ route('authors.destroy', $auther) }}" method="post"
+                                        <form action="{{ route('authors.destroy', $auther->id) }}" method="post"
                                             class="form-hidden">
                                             <button class="btn btn-danger delete-author">Delete</button>
                                             @csrf

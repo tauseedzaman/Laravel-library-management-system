@@ -17,8 +17,8 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('category_id')->constrained();
-            $table->foreignId('auther_id')->nullable()->constrained();
-            $table->foreignId('publisher_id')->nullable()->constrained();
+            $table->foreignId('auther_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('publisher_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('status')->default('Y');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateBookIssuesTable extends Migration
     {
         Schema::create('book_issues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('book_id')->constrained();
             $table->timestamp('issue_date');
             $table->timestamp('return_date')->nullable();

@@ -78,7 +78,8 @@ class AutherController extends Controller
      */
     public function destroy($id)
     {
-        auther::find($id)->delete();
+        dd(auther::find($id)->delete());
+        // ->delete();
         return redirect()->route('authors');
     }
 }
