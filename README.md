@@ -3,39 +3,60 @@
 # Laravel Library Management System
 
 ## Quick Start 
-1. clone the repo
-2. cd Laravel-libraray-management-system
-3. composer install
-4. cp or copy .env.example .env
-5. php artisan key:generate
-6. create database 
-7. php artisan migrate
-8. php aritsan db:seed
-9. php artisan serve
+clone the repo
+```
+    git clone https://github.com/tauseedzaman/Laravel-libraray-management-system
+```
+
+change current directory
+
+```
+cd Laravel-libraray-management-system
+```
+install dependencies
+```
+composer install
+````
+create .env file
+```
+cp (unix) or copy (Windows) .env.example .env
+```
+generate env key
+```
+php artisan key:generate
+```
+migrate the migration and seed the database
+```
+php artisan migrate:fresh --seed
+```
+start server
+```
+php artisan serve
+```
+credentails
+```
+username: tauseedzaman
+password: password
+```
+# That's all 🎊🎉 
 
 ## ScreenShots
-<img src="Screenshots/lms (1).png" width="100%" /><br />
-<img src="Screenshots/lms (2).png" width="100%" /><br />
-<img src="Screenshots/lms (3).png" width="100%" /><br />
-<img src="Screenshots/lms (4).png" width="100%" /><br />
-<img src="Screenshots/lms (5).png" width="100%" /><br />
-<img src="Screenshots/lms (6).png" width="100%" /><br />
-<img src="Screenshots/lms (7).png" width="100%" /><br />
-<img src="Screenshots/lms (8).png" width="100%" /><br />
-<img src="Screenshots/lms (9).png" width="100%" /><br />
-<img src="Screenshots/lms (10).png" width="100%" /><br />
-<img src="Screenshots/lms (11).png" width="100%" /><br />
-<img src="Screenshots/lms (12).png" width="100%" /><br />
-<img src="Screenshots/lms (13).png" width="100%" /><br />
-## Code of Conduct
+<img src="Screenshots/lms (1).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (2).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (3).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (4).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (5).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (6).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (7).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (8).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (9).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (10).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (11).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (12).png" width="100%" /><br /> <br />
+<img src="Screenshots/lms (13).png" width="100%" /><br /> <br />
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Watch demo at tauseedzaman youtube channel https://youtube.com/channel/UCnJYN9jTfEnumvJUw4rhh9A
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# Laravel-libraray-management-system" 
+```
+Make sure to leave a start ✨✨
+```
