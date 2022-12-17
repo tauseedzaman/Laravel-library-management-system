@@ -17,6 +17,10 @@ install dependencies
 ```
 composer install
 ````
+install js dependencies
+```
+npm install && npm run dev
+````
 create .env file
 ```
 cp (unix) or copy (Windows) .env.example .env
