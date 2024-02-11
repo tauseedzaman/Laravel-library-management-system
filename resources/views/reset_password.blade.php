@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label>New Password</label>
                             <input type="password" class="form-control" name="password" value="" required>
-                            @error('new_password')
+                            @error('password')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -33,11 +33,6 @@
                         <div class="form-group">
                             <label>Confirm Password</label>
                             <input type="password" class="form-control" name="password_confirmation" value="" required>
-                            @error('new_password')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div>
                         <input type="submit" class="btn btn-danger" value="Update" required>
                     </form>

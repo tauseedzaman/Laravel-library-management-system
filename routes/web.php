@@ -29,7 +29,7 @@ Route::get('/', function () {
 })->middleware('guest');
 Route::post('/', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::post('/Change-password', [LoginController::class, 'changePassword'])->name('change_password');
+// Route::post('/Change-password', [LoginController::class, 'changePassword'])->name('change_password');
 
 
 Route::middleware('auth')->group(function () {

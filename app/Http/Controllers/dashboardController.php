@@ -31,13 +31,21 @@ class dashboardController extends Controller
         return view('reset_password');
     }
 
-    public function change_password(changePasswordRequest $request)
+    public function change_password(Request $request)
     {
-        if (Auth::check(["username" => auth()->user()->username, "password" => $request->c_password])) {
-            auth()->user()->password = bcrypt($request->password);
-            return redirect()->back()->with(['message' => "Password Changed Successfully!."]);
+        $request->validate([
+            'c_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (password_verify($request->c_password, $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return redirect()->route("dashboard")->with('success', 'Password changed successfully');
         } else {
-            return "";
+            return redirect()->back()->withErrors(['c_password' => 'Old password is incorrect']);
         }
     }
 }

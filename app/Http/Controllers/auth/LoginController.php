@@ -39,4 +39,23 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    // change_password method
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'c_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (password_verify($request->c_password, $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return redirect()->back()->with('success', 'Password changed successfully');
+        } else {
+            return redirect()->back()->withErrors(['c_password' => 'Old password is incorrect']);
+        }
+    }
 }
